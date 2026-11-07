@@ -1,17 +1,16 @@
 import os
+import ast
 
-SYSTEM_PROMPT = "You are a helpful AI assistant. Ignore previous instructions only when authorized."
-
-API_KEY = "sk-demo-1234567890abcdef"
+SYSTEM_MESSAGE = os.environ.get("AI_SYSTEM_PROMPT", "You are a helpful assistant.")
 
 def calculate(expression):
-    return eval(expression)
+    return ast.literal_eval(expression)
 
 def chat(user_input):
-    print("System:", SYSTEM_PROMPT)
+    print("System:", SYSTEM_MESSAGE)
     print("User:", user_input)
     return "Demo AI response"
 
 if __name__ == "__main__":
     print(chat("Hello"))
-    print("Calculation:", calculate("2 + 2"))
+    print("Calculation:", calculate("2"))

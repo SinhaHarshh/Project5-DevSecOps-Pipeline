@@ -1,1 +1,2 @@
-GITHUB_TOKEN = "ghp_12345678900987654321"
+import os
+API_KEY = os.environ.get("AI_API_KEY")
