@@ -17,7 +17,7 @@ INJECTION_PHRASES = [
 found = False
 
 for file in pathlib.Path(".").rglob("*.py"):
-    if ".git" in file.parts:
+    if ".git" in file.parts or file.name == "inject_scanner.py" :
         continue
 
     content = file.read_text(errors="ignore")
